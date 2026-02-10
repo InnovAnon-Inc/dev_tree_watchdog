@@ -1,8 +1,8 @@
 services:
 
   dev_tree_watchdog: # handles -march= / -mtune= architecture-specific distribution
-    #image: ghcr.io/innovanon-inc/dev_tree_watchdog:latest
-    build: .
+    #build: .
+    image: ghcr.io/innovanon-inc/dev_tree_watchdog:latest
     container_name: dev_tree_watchdog
     hostname: dev_tree_watchdog.innovanon.com
     environment:

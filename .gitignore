@@ -1,4 +1,3 @@
-Dockerfile
 build/
 chroma_data/
 logs/
