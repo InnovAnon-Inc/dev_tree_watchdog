@@ -1,4 +1,5 @@
 dotenv
 gitpython
+gitwatch
 PyGithub
 watchdog

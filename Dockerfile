@@ -4,6 +4,7 @@ FROM ghcr.io/innovanon-inc/python_dev_base_docker_image:latest
 RUN pip install --no-cache-dir -U \
     dotenv                        \
     gitpython                     \
+    gitwatch                      \
     PyGithub                      \
     watchdog
 
