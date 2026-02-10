@@ -55,7 +55,7 @@ class GitManager:
                 self.repo.remotes.origin.set_url(remote_url)
 
             # Safety Commit (Prevent headless)
-            if not self.repo.heads:
+            if not self.repo.heads: # TODO
                 readme = self.path / "README.md"
                 if not readme.exists():
                     readme.write_text(f"# {self.name}")
@@ -109,6 +109,9 @@ def main():
     WATCH_PATH = os.getenv("WATCH_PATH", "/mnt/dev_tree")
     GITHUB_TOKEN = os.getenv("GH_TOKEN") # Required for PyGithub
     ORG_NAME = os.getenv("ORG_NAME", "Innovanon-Inc")
+    logging.info(f'watch  path : {WATCH_PATH}')
+    logging.info(f'github token: {GITHUB_TOKEN}')
+    logging.info(f'org    name : {ORG_NAME}')
 
     if not GITHUB_TOKEN:
         print("❌ Error: GH_TOKEN environment variable is not set.")

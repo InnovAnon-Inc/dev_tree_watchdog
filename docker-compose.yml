@@ -6,18 +6,23 @@ services:
     container_name: dev_tree_watchdog
     hostname: dev_tree_watchdog.innovanon.com
     environment:
-      - GIT_CONFIG_PARAMETERS='credential.helper=store --file=/root/.git-credentials'
-      - HOME=/tmp
+      ##- GIT_CONFIG_PARAMETERS='credential.helper=store --file=/root/.git-credentials'
+      ##- HOME=/tmp
+      #- GH_TOKEN=${GH_TOKEN}
+      #- ORG_NAME=InnovAnon-Inc
+      #- WATCH_PATH=/mnt/dev_tree
+    env_file: .env
     volumes:
       - ~/src/py/latest:/mnt/dev_tree:rw
-      - ~/.ssh:/root/.ssh:ro
-      - ~/.ssh:/tmp/.ssh:ro
-      - ~/.git-credentials:/root/.git-credentials:ro
-      - ~/.git-credentials:/tmp/.git-credentials:ro
-      - ~/.gitconfig:/root/.gitconfig:ro
-      - ~/.gitconfig:/tmp/.gitconfig:ro
-      - ~/.gnupg:/root/.gnupg:ro
-      - ~/.gnupg:/tmp/.gnupg:ro
+      ##- ~/.ssh:/root/.ssh:ro
+      ##- ~/.ssh:/tmp/.ssh:ro
+      ##- ~/.git-credentials:/root/.git-credentials:ro
+      ##- ~/.git-credentials:/tmp/.git-credentials:ro
+      ##- ~/.gitconfig:/root/.gitconfig:ro
+      ##- ~/.gitconfig:/tmp/.gitconfig:ro
+      ##- ~/.gnupg:/root/.gnupg:ro
+      ##- ~/.gnupg:/tmp/.gnupg:ro
+    #user: ${UID}:${GID}
     user: 1000:1000
     restart: unless-stopped
     labels:
