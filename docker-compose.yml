@@ -5,7 +5,7 @@ services:
     image: ghcr.io/innovanon-inc/dev_tree_watchdog:latest
     container_name: dev_tree_watchdog
     hostname: dev_tree_watchdog.innovanon.com
-    environment:
+    #environment:
       ##- GIT_CONFIG_PARAMETERS='credential.helper=store --file=/root/.git-credentials'
       ##- HOME=/tmp
       #- GH_TOKEN=${GH_TOKEN}
