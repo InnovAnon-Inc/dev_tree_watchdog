@@ -1,0 +1,25 @@
+services:
+
+  dev_tree_watchdog: # handles -march= / -mtune= architecture-specific distribution
+    #image: ghcr.io/innovanon-inc/dev_tree_watchdog:latest
+    build: .
+    container_name: dev_tree_watchdog
+    hostname: dev_tree_watchdog.innovanon.com
+    environment:
+      - GIT_CONFIG_PARAMETERS='credential.helper=store --file=/root/.git-credentials'
+      - HOME=/tmp
+    volumes:
+      - ~/src/py/latest:/mnt/dev_tree:rw
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.ssh:/tmp/.ssh:ro
+      - ~/.git-credentials:/root/.git-credentials:ro
+      - ~/.git-credentials:/tmp/.git-credentials:ro
+      - ~/.gitconfig:/root/.gitconfig:ro
+      - ~/.gitconfig:/tmp/.gitconfig:ro
+      - ~/.gnupg:/root/.gnupg:ro
+      - ~/.gnupg:/tmp/.gnupg:ro
+    user: 1000:1000
+    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
