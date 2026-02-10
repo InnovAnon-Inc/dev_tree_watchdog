@@ -3,16 +3,24 @@ FROM python:3.13-slim
 # TODO it's okay use use all the build deps, so as to create a common layer
 RUN apt-get update                             \
 &&  apt-get install -y --no-install-recommends \
+    binutils                                   \
     gcc                                        \
+    g++                                        \
+    git                                        \
     libc6-dev                                  \
+    llvm                                       \
 &&  rm -rf /var/lib/apt/lists/*
 
 # FIXME we have requirements.txt for a reason. we also have pyproject.toml dev deps
 RUN pip install --no-cache-dir \
+    build                      \
+    cython                     \
     dotenv                     \
     gitpython                  \
     PyGithub                   \
-    watchdog
+    setuptools                 \
+    watchdog                   \
+    wheel
 
 COPY . /app
 WORKDIR /app
