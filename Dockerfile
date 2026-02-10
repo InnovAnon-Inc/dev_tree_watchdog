@@ -1,10 +1,10 @@
 FROM ghcr.io/innovanon-inc/python_dev_base_docker_image:latest
 
 # FIXME we have requirements.txt for a reason. we also have pyproject.toml dev deps
-RUN pip install --no-cache-dir \
-    dotenv                     \
-    gitpython                  \
-    PyGithub                   \
+RUN pip install --no-cache-dir -U \
+    dotenv                        \
+    gitpython                     \
+    PyGithub                      \
     watchdog
 
 COPY . /app
